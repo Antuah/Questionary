@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        label {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            10px 1px 10px
+        }
+
+        input {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 2px 3px 0px rgb(0, 0, 0);
+        }
+
+        body {
+            background-color: #029212;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body background="">
+    <h1>Formulario</h1>
+    <form action="muestra.html" method="get">
+        <label for="">Nombre:</label><input type="text" name="nombre">
+        &nbsp;<label for="">Apellidos:</label><input type="text" name="apellidos">
+        &nbsp;<label for="">Correo:</label><input type="text" name="correo">
+        &nbsp;<label for="">Fecha de nacimiento:</label><input type="date" name="nacimiento">
+        &nbsp;<label for="">Telefono:</label><input type="number" name="telefono"><br> <br>
+        <div style="background-color: black; height: 3px;"></div> <br>
+        &nbsp;<label for="">Contraseña:</label><input type="password" name="contraseña">
+        &nbsp;<label for="">Confirmar contraseña:</label><input type="password" name="contraseña">
+        <br>
+        <br>
+        <input type="submit" value="Registrar Producto">
+    </form>
+    <script>
+        getParameter = (key) => {
+            address = window.location.search;
+            parameterList = new URLSearchParams(address);
+            return parameterList.get(key);
+        }
+        console.log(getParameter("nombre"));
+        var nombre = getParameter("nombre");
+        if (nombre != null) {
+            document.getElementById("nombre").innerHTML = nombre;
+        }
+        console.log(getParameter("apellidos"));
+        var apellido = getParameter("apellidos");
+        if (apellido != null) {
+            document.getElementById("apellidos").innerHTML = apellido;
+        }
+
+        console.log(getParameter("correo"));
+        var correo = getParameter("correo");
+        if (correo != null) {
+            document.getElementById("correo").innerHTML = correo;
+        }
+
+        console.log(getParameter("nacimiento"));
+        var nacimiento = getParameter("nacimiento");
+        if (nacimiento != null) {
+            document.getElementById("nacimiento").innerHTML = nacimiento;
+        }
+        console.log(getParameter("telefono"));
+        var telefono = getParameter("telefono");
+        if (telefono!=null ) {
+            document.getElementById("telefono").innerHTML = telefono;
+        }
+        
+        function validarFormulario() {
+            var contraseña = getParameter("contraseña");
+            if (contraseña != null && contraseña.length < 5) {
+                alert("La contraseña es insegura. Debe tener al menos 5 caracteres.");
+                return false; 
+            }
+            return true; 
+        }
+
+    </script>
+</body>
+
+</html>
