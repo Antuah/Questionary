@@ -38,7 +38,7 @@
         &nbsp;<label for="">Telefono:</label><input type="number" name="telefono"><br> <br>
         <div style="background-color: black; height: 3px;"></div> <br>
         &nbsp;<label for="">Contraseña:</label><input type="password" name="contraseña">
-        &nbsp;<label for="">Confirmar contraseña:</label><input type="password" name="contraseña">
+        &nbsp;<label for="">Confirmar contraseña:</label><input type="password" name="recontraseña">
         <br>
         <br>
         <input type="submit" value="Registrar Producto">
@@ -78,14 +78,15 @@
         }
         
         function validarFormulario() {
-            var contraseña = getParameter("contraseña");
-            if (contraseña != null && contraseña.length < 5) {
+            var contraseñaInput = document.getElementsByName("contraseña")[0];
+            var contraseña = contraseñaInput.value;
+            if (contraseña.length < 5) {
                 alert("La contraseña es insegura. Debe tener al menos 5 caracteres.");
-                return false; 
+                contraseñaInput.focus(); // Coloca el foco en el campo de contraseña
+                return false; // Evita que el formulario se envíe
             }
-            return true; 
+            return true; // Permite que el formulario se envíe si la contraseña es segura
         }
-
     </script>
 </body>
 
