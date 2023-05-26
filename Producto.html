@@ -37,7 +37,7 @@
         &nbsp;<label for="">Fecha de nacimiento:</label><input type="date" name="nacimiento">
         &nbsp;<label for="">Telefono:</label><input type="number" name="telefono"><br> <br>
         <div style="background-color: black; height: 3px;"></div> <br>
-        &nbsp;<label for="">Contraseña:</label><input type="password" name="contraseña">
+        &nbsp;<label for="">Contraseña:</label><input type="password" name="contraseña" id="contraseñaInput">
         &nbsp;<label for="">Confirmar contraseña:</label><input type="password" name="recontraseña">
         <br>
         <br>
@@ -76,9 +76,8 @@
         if (telefono!=null ) {
             document.getElementById("telefono").innerHTML = telefono;
         }
-        
         function validarFormulario() {
-            var contraseñaInput = document.getElementsByName("contraseña")[0];
+            var contraseñaInput = document.getElementById("contraseñaInput");
             var contraseña = contraseñaInput.value;
             if (contraseña.length < 5) {
                 alert("La contraseña es insegura. Debe tener al menos 5 caracteres.");
