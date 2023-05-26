@@ -127,17 +127,11 @@
         if (telefono != null) {
             document.getElementById("telefono").innerHTML = telefono;
         }
-        
-        
-        function validarFormulario() {
-            var contraseñaInput = document.getElementsByName("contraseña")[0];
-            var contraseña = contraseñaInput.value;
-            if (contraseña.length < 5) {
-                alert("La contraseña es insegura. Debe tener al menos 5 caracteres.");
-                contraseñaInput.focus(); // Coloca el foco en el campo de contraseña
-                return false; // Evita que el formulario se envíe
-            }
-            return true; // Permite que el formulario se envíe si la contraseña es segura
+        var contraseña = getParameter("contraseña");
+        if (contraseña != null && contraseña.length < 5) {
+            var mensaje = document.createElement("p");
+            mensaje.innerHTML = "La contraseña proporcionada es insegura. Por favor, elige una contraseña más segura.";
+            document.body.appendChild(mensaje);
         }
     </script>
 </body>
